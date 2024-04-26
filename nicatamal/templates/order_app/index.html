@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% extends "order_app/base.html" %}
+
+  {% block body_block %}
+
+        <h2>Órdenes recibidas</h2>
+      
+        
+        <div class = 'tabla_ordenes'>
+            {% if orders %}
+                <table>
+                    <thead>
+                        <th>Client</th>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                        <th>Date</th>
+                        <th>Delivery</th>
+                        <th>Completed</th>
+                        <th>Nota</th>                        
+                    </thead>
+                    
+                {% for ord in orders %}
+                    <tr>
+                        <td>{{ ord.client}}</td>
+                        <td>{{ ord.product}}</td>
+                        <td>{{ ord.price}}</td>
+                        <td>{{ ord.quantity}}</td>
+                        <td>{{ ord.total_price}}</td>                 
+                        <td>{{ ord.date}}</td>
+                        <td>{{ ord.delivery_date}}</td>
+                        <td>{{ ord.completed}}</td>
+                        <td>{{ ord.nota}}</td>
+
+
+                    </tr>
+                {% endfor %}
+                </table>
+            {% else %}
+                <p>NO SE ENCONTRARON ÒRDENES</p>
+                    
+            {% endif %}
+                
+
+                
+        </div>
+  {% endblock %}
